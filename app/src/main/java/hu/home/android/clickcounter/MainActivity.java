@@ -44,12 +44,21 @@ public class MainActivity extends AppCompatActivity {
                 szamValtozik();
             }
         });
+        szamTextView.setLongClickable(true);
+        szamTextView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                counter = 0;
+                szamValtozik();
+                return false;
+            }
+        });
     }
 
     private void szamValtozik(){
         szamTextView.setText(Integer.toString(counter));
         if (counter >= 1){
-            szamTextView.setTextColor(Color.parseColor("#09fb0e"));
+            szamTextView.setTextColor(getResources().getColor(R.color.green));
         } else if (counter == 0){
             szamTextView.setTextColor(Color.parseColor("#0000fe"));
 
